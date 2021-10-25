@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home () {
   const [verified, setVerified] = useState(false)
-  
+
   return (
     <Container className={[styles.container, 'p-3']}>
       <Head>
