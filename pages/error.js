@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Container from 'react-bootstrap/Container'
 import { useRouter } from 'next/dist/client/router'
 
@@ -12,7 +11,7 @@ export default function Error () {
       <Head>
         <title>Meckerkasten</title>
       </Head>
-      <Image src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" height="103" />
+      <img src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" className="mb-3" />
       <h1>Meckerkasten der Fachschaft Informatik</h1>
       <p>
         Uff, es ist ein Fehler aufgetreten.

@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Container from 'react-bootstrap/Container'
 
 export default function Done () {
@@ -9,7 +8,7 @@ export default function Done () {
       <Head>
         <title>Meckerkasten</title>
       </Head>
-      <Image src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" height="103" />
+      <img src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" className="mb-3" />
       <h1>Meckerkasten der Fachschaft Informatik</h1>
       <p>
         Vielen Dank für deine Nachricht. 😊
