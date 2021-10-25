@@ -1,6 +1,3 @@
 module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ['assets.neuland.app']
-  }
+  reactStrictMode: true
 }

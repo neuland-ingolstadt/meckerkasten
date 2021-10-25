@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
-import Image from 'next/image'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -24,7 +23,7 @@ export default function Home ({ hCaptchaSiteKey }) {
       <Head>
         <title>Meckerkasten</title>
       </Head>
-      <Image src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" height="103" />
+      <img src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" className="mb-3" />
       <h1 className={styles.heading}>Meckerkasten der Fachschaft Informatik</h1>
       <p>
         Stört dich oder beschäftigt dich etwas bezüglich unserer Hochschule, aber du möchtest es nicht offen ansprechen?
