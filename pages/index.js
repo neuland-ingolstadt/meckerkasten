@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Image from 'next/image'
 import Container from 'react-bootstrap/Container'
@@ -7,7 +8,15 @@ import Button from 'react-bootstrap/Button'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import styles from '../styles/Home.module.css'
 
-export default function Home () {
+export async function getServerSideProps (ctx) {
+  return {
+    props: {
+      hCaptchaSiteKey: process.env.HCAPTCHA_SITEKEY
+    }
+  }
+}
+
+export default function Home ({ hCaptchaSiteKey }) {
   const [verified, setVerified] = useState(false)
 
   return (
@@ -45,7 +54,7 @@ export default function Home () {
         </Form.Group>
         <Form.Group>
           <HCaptcha
-            sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY}
+            sitekey={hCaptchaSiteKey}
             onVerify={(token, ekey) => setVerified(true)}
           />
         </Form.Group>
@@ -59,4 +68,7 @@ export default function Home () {
       </p>
     </Container>
   )
+}
+Home.propTypes = {
+  hCaptchaSiteKey: PropTypes.string
 }
