@@ -1,18 +1,15 @@
 import React from 'react'
-import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import { useRouter } from 'next/dist/client/router'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Error () {
   const router = useRouter()
 
   return (
     <Container className="p-3">
-      <Head>
-        <title>Meckerkasten</title>
-      </Head>
-      <img src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" className="mb-3" />
-      <h1>Meckerkasten der Fachschaft Informatik</h1>
+      <Header />
       <p>
         Uff, es ist ein Fehler aufgetreten.
       </p>
@@ -29,6 +26,7 @@ export default function Error () {
           <a href="https://neuland-ingolstadt.de/impressum.htm" target="_blank" rel="noreferrer">Impressum und Datenschutz</a>
         </small>
       </p>
+      <Footer />
     </Container>
   )
 }

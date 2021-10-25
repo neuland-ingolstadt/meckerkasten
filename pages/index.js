@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import styles from '../styles/Home.module.css'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export async function getServerSideProps (ctx) {
   return {
@@ -20,11 +21,7 @@ export default function Home ({ hCaptchaSiteKey }) {
 
   return (
     <Container className={[styles.container, 'p-3']}>
-      <Head>
-        <title>Meckerkasten</title>
-      </Head>
-      <img src="https://assets.neuland.app/StudVer_Logo_2020_CMYK.svg" width="300" className="mb-3" />
-      <h1 className={styles.heading}>Meckerkasten der Fachschaft Informatik</h1>
+      <Header />
       <p>
         Stört dich oder beschäftigt dich etwas bezüglich unserer Hochschule, aber du möchtest es nicht offen ansprechen?
         Hier kannst du uns anonym deine Sorgen und deine Beschwerden mitteilen. :)
@@ -60,12 +57,7 @@ export default function Home ({ hCaptchaSiteKey }) {
         </Form.Group>
         <Button variant="primary" type="submit" disabled={!verified}>Absenden</Button>
       </Form>
-      <p className="text-muted mt-3">
-        <small>
-          Ein Angebot der Fachschaft Informatik der Technischen Hochschule Ingolstadt, bereitgestellt von Neuland Ingolstadt. <br />
-          <a href="https://neuland-ingolstadt.de/impressum.htm" target="_blank" rel="noreferrer">Impressum und Datenschutz</a>
-        </small>
-      </p>
+      <Footer />
     </Container>
   )
 }
