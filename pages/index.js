@@ -61,7 +61,7 @@ export default function Home ({ hCaptchaSiteKey }) {
       </Form>
       <p className="text-muted mt-3">
         <small>
-          Ein Angebot der Fachschaft Informatik an der Technischen Hochschule Ingolstadt, bereitgestellt von Neuland Ingolstadt <br />
+          Ein Angebot der Fachschaft Informatik der Technischen Hochschule Ingolstadt, bereitgestellt von Neuland Ingolstadt. <br />
           <a href="https://neuland-ingolstadt.de/impressum.htm" target="_blank" rel="noreferrer">Impressum und Datenschutz</a>
         </small>
       </p>
