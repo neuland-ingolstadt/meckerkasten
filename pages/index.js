@@ -46,7 +46,7 @@ export default function Home ({ hCaptchaSiteKey }) {
             type="email"
             />
           <Form.Text className="text-muted">
-            Das musst du nur angeben, wenn du eine Antwort möchtest.
+            Damit wir dich kontaktieren können, wenn du das möchtest.
           </Form.Text>
         </Form.Group>
         <Form.Group>
