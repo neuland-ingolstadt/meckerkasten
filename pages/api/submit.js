@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import { recipients } from '../../util/config'
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
@@ -10,12 +11,12 @@ const transporter = nodemailer.createTransport({
   }
 })
 
-function getSubject (form) {
-  return 'Neue Nachricht im Meckerkasten der Fachschaft Informatik'
+function getSubject (recipient, form) {
+  return `Neue Nachricht im Meckerkasten der ${recipient.name}`
 }
 
-function getBody (form) {
-  return `Es ist eine neue Nachricht im Meckerkasten der Fachschaft Informatik eingegangen.
+function getBody (recipient, form) {
+  return `Es ist eine neue Nachricht im Meckerkasten der ${recipient.name} eingegangen.
 
 Antwortadresse:
 ${form.email || '(nicht angegeben)'}
@@ -53,13 +54,14 @@ export const config = {
 export default async (req, res) => {
   try {
     const form = req.body
+    const recipient = recipients.find(recipient => recipient.id === form.recipient)
     await verifyCaptcha(form)
     await transporter.sendMail({
       from: process.env.MAIL_FROM,
-      to: process.env.MAIL_TO,
+      to: recipient.value,
       replyTo: form.email || undefined,
-      subject: getSubject(form),
-      text: getBody(form)
+      subject: getSubject(recipient, form),
+      text: getBody(recipient, form)
     })
     res.redirect('../done')
   } catch (e) {

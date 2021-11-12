@@ -7,16 +7,18 @@ import HCaptcha from '@hcaptcha/react-hcaptcha'
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { recipients } from '../util/config'
 
 export async function getServerSideProps (ctx) {
   return {
     props: {
-      hCaptchaSiteKey: process.env.HCAPTCHA_SITEKEY
+      hCaptchaSiteKey: process.env.HCAPTCHA_SITEKEY,
+      recipients: recipients.map(({ id, name }) => ({ id, name }))
     }
   }
 }
 
-export default function Home ({ hCaptchaSiteKey }) {
+export default function Home ({ hCaptchaSiteKey, recipients }) {
   const [verified, setVerified] = useState(false)
 
   return (
@@ -30,6 +32,14 @@ export default function Home ({ hCaptchaSiteKey }) {
         Du kannst uns natürlich auch jederzeit unter <a href="mailto:studver@thi.de">studver@thi.de</a> sowie in Raum W003 erreichen.
       </p>
       <Form method="post" action="api/submit">
+        <Form.Group className="mb-3">
+          <Form.Label>Empfänger:</Form.Label>
+          <Form.Select name="recipient">
+            {recipients.map(({ id, name }) =>
+              <option key={id} value={id}>{name}</option>
+            )}
+          </Form.Select>
+        </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Nachricht:</Form.Label>
           <Form.Control
@@ -62,5 +72,6 @@ export default function Home ({ hCaptchaSiteKey }) {
   )
 }
 Home.propTypes = {
-  hCaptchaSiteKey: PropTypes.string
+  hCaptchaSiteKey: PropTypes.string,
+  recipients: PropTypes.array
 }

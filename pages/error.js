@@ -19,13 +19,6 @@ export default function Error () {
       <p>
         {router.query.message}
       </p>
-      <p className="text-muted mt-3">
-        <small>
-          Ein Angebot der Fachschaft Informatik an der Technischen Hochschule Ingolstadt.
-          <br />
-          <a href="https://neuland-ingolstadt.de/impressum.htm" target="_blank" rel="noreferrer">Impressum und Datenschutz</a>
-        </small>
-      </p>
       <Footer />
     </Container>
   )
