@@ -1,4 +1,4 @@
-export const recipients = process.env.RECIPIENTS.split(',')
+export const recipients = process.env.RECIPIENTS?.split(',')
   .map(id => ({
     id,
     name: process.env[`NAME_${id}`],
